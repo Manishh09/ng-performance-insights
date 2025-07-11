@@ -113,7 +113,7 @@ code {
 
 /* Divider styles */
 .divider {
-  height: 1px;
+  height: 2px !important;
   width: 100%;
   background: var(--red-to-pink-to-purple-horizontal-gradient);
   margin-block: 1.5rem;

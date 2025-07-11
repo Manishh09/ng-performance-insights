@@ -230,6 +230,43 @@
       }
     }
     
+    .github-link {
+      margin-left: 8px;
+      
+      a {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--theme-text);
+        transition: color 0.2s ease;
+        
+        &:hover {
+          color: var(--electric-violet);
+          background: var(--hover-background);
+          
+          .github-icon path {
+            fill: var(--electric-violet);
+          }
+        }
+      }
+      
+      .github-icon {
+        transition: fill 0.2s ease;
+        
+        path {
+          fill: currentColor;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        margin-left: 0;
+        
+        a {
+          border-top: 1px solid var(--divider);
+        }
+      }
+    }
+    
     @media (max-width: 768px) {
       position: fixed;
       top: 64px;

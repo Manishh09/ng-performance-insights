@@ -182,13 +182,9 @@
     padding: 1.5rem;
   }
 
-  .navigation-header {
-    align-items: center;
-  }
-
   .header {
-    text-align: left;
-    margin-bottom: 1rem;
+    text-align: center;
+    margin-bottom: 2rem;
 
     h1 {
       font-size: 1.75rem;
@@ -199,19 +195,9 @@
     }
   }
 
-  .menu-toggle {
-    display: block;
-    z-index: 10;
-  }
-
   .navigation {
-    display: none;
+    display: block;
     padding-top: 1rem;
-
-    &.mobile-open {
-      display: block;
-      animation: fadeIn 0.3s ease-in-out;
-    }
   }
 
   .nav-grid {

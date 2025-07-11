@@ -10,8 +10,6 @@ import { CommonModule } from '@angular/common';
   styleUrl: './navigation.component.scss'
 })
 export class NavigationComponent {
-  protected isMobileMenuOpen = false;
-  
   protected readonly navigationItems = [
     {
       path: '/classic',
@@ -47,12 +45,4 @@ export class NavigationComponent {
       description: 'Multiple observables with takeUntilDestroyed'
     }
   ];
-  
-  protected toggleMobileMenu(): void {
-    this.isMobileMenuOpen = !this.isMobileMenuOpen;
-  }
-  
-  protected closeMobileMenu(): void {
-    this.isMobileMenuOpen = false;
-  }
 }
