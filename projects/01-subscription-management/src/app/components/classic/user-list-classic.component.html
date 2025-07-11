@@ -1,0 +1,7 @@
+<h2>User List (Manual)</h2>
+
+@for (user of users; track user.id) {
+  <p>{{ user.name }} - {{ user.email }}</p>
+}
+
+<p>Polling Value: {{ pollingValue }}</p>

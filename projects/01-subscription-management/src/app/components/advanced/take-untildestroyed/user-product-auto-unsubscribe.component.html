@@ -1,0 +1,11 @@
+<h2>User & Product List (takeUntilDestroyed)</h2>
+
+<h3>Users</h3>
+@for (user of users; track user.id) {
+  <p>{{ user.name }}</p>
+}
+
+<h3>Products</h3>
+@for (product of products; track product.id) {
+  <p>{{ product.title }} - ${{ product.price }}</p>
+}
