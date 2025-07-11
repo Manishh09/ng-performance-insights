@@ -1,7 +1,43 @@
-<h2>User List (takeUntil)</h2>
+<div class="container">
+  <div class="header">
+    <h2>User List (TakeUntil Pattern)</h2>
+    <p class="description">Using takeUntil operator with Subject for automatic unsubscription</p>
+    <div class="polling-value">
+      <strong>Polling Value:</strong> {{ pollingValue }}
+    </div>
+  </div>
 
-@for (user of users; track user.id) {
-  <p>{{ user.name }} - {{ user.email }}</p>
-}
-
-<p>Polling Value: {{ pollingValue }}</p>
+  <div class="table-container">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Website</th>
+          <th>Company</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (user of users; track user.id) {
+          <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.phone }}</td>
+            <td>{{ user.website }}</td>
+            <td>{{ user.company.name }}</td>
+          </tr>
+        }
+        @empty {
+          <tr>
+            <td colspan="7" class="empty-state">Loading users...</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

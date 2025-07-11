@@ -1,0 +1,115 @@
+.navigation-container {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+
+  h1 {
+    color: var(--theme-text);
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+  }
+
+  .subtitle {
+    color: var(--theme-text-secondary, #606060);
+    font-size: 1.125rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.navigation {
+  .nav-section {
+    margin-bottom: 3rem;
+
+    h2 {
+      color: var(--theme-text);
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+      border-bottom: 1px solid var(--divider);
+      padding-bottom: 0.75rem;
+    }
+  }
+
+  .nav-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .nav-card {
+    display: block;
+    padding: 1.75rem;
+    border: 1px solid var(--divider);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--theme-text);
+    transition: all 0.3s ease;
+    background: var(--card-background);
+    box-shadow: var(--card-shadow);
+
+    &:hover {
+      border-color: var(--theme-accent);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    &.active {
+      border-color: var(--theme-accent);
+      background: var(--card-background);
+      box-shadow: 0 0 0 1px var(--theme-accent), var(--card-shadow);
+    }
+
+    &.advanced {
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: "Advanced";
+        position: absolute;
+        top: 12px;
+        right: -30px;
+        background: var(--theme-accent);
+        color: white;
+        font-size: 0.75rem;
+        padding: 2px 30px;
+        transform: rotate(45deg);
+        font-weight: 500;
+      }
+    }
+
+    h3 {
+      margin: 0 0 0.75rem 0;
+      font-size: 1.25rem;
+      color: var(--theme-text);
+      font-weight: 600;
+    }
+
+    p {
+      margin: 0;
+      color: var(--theme-text-secondary, #606060);
+      font-size: 0.9375rem;
+      line-height: 1.5;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .navigation-container {
+    padding: 1.5rem;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .nav-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,46 @@
+<div class="navigation-container">
+  <div class="navigation-header">
+    <header class="header">
+      <h1>Angular Subscription Management Patterns</h1>
+      <p class="subtitle">Demonstrating different approaches to manage RxJS subscriptions</p>
+    </header>
+    
+    <button class="menu-toggle" (click)="toggleMobileMenu()" aria-label="Toggle navigation menu">
+      <span class="menu-icon" [class.open]="isMobileMenuOpen"></span>
+    </button>
+  </div>
+
+  <nav class="navigation" [class.mobile-open]="isMobileMenuOpen">
+    <section class="nav-section">
+      <h2>Basic Patterns</h2>
+      <div class="divider"></div>
+      <div class="nav-grid">
+        <a 
+          *ngFor="let item of navigationItems"
+          [routerLink]="item.path"
+          routerLinkActive="active"
+          class="nav-card"
+          (click)="closeMobileMenu()">
+          <h3>{{ item.label }}</h3>
+          <p>{{ item.description }}</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="nav-section">
+      <h2>Advanced Patterns</h2>
+       <div class="divider"></div>
+      <div class="nav-grid">
+        <a 
+          *ngFor="let item of advancedItems"
+          [routerLink]="item.path"
+          routerLinkActive="active"
+          class="nav-card advanced"
+          (click)="closeMobileMenu()">
+          <h3>{{ item.label }}</h3>
+          <p>{{ item.description }}</p>
+        </a>
+      </div>
+    </section>
+  </nav>
+</div>

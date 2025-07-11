@@ -1,10 +1,52 @@
-<h2>User Profile (SubSink)</h2>
+<div class="container">
+  <div class="header">
+    <h2>User Profile (SubSink Pattern)</h2>
+    <p class="description">Using SubSink library to collect and manage subscriptions</p>
+    <div class="polling-value">
+      <strong>Polling Value:</strong> {{ pollingValue }}
+    </div>
+  </div>
 
-@if (user; ) {
-  <p>{{ user.name }} - {{ user.email }}</p>
-}
-@else {
-  <p>Loading user...</p>
-}
+  <div class="profile-container">
+    @if (user) {
+      <div class="user-profile">
+        <div class="profile-header">
+          <h3>{{ user.name }}</h3>
+          <p class="username">&#64;{{ user.username }}</p>
+        </div>
 
-<p>Polling Value: {{ pollingValue }}</p>
+        <div class="profile-details">
+          <table class="details-table">
+            <tbody>
+              <tr>
+                <th>Email:</th>
+                <td>{{ user.email }}</td>
+              </tr>
+              <tr>
+                <th>Phone:</th>
+                <td>{{ user.phone }}</td>
+              </tr>
+              <tr>
+                <th>Website:</th>
+                <td>{{ user.website }}</td>
+              </tr>
+              <tr>
+                <th>Company:</th>
+                <td>{{ user.company.name }}</td>
+              </tr>
+              <tr>
+                <th>Address:</th>
+                <td>{{ user.address.street }}, {{ user.address.suite }}<br>
+                    {{ user.address.city }}, {{ user.address.zipcode }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    } @else {
+      <div class="loading">
+        <p>Loading user profile...</p>
+      </div>
+    }
+  </div>
+</div>

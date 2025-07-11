@@ -1,11 +1,74 @@
-<h2>User & Product List (takeUntil) Advanced</h2>
+<div class="container">
+  <div class="header">
+    <h2>Users & Products (TakeUntil Pattern)</h2>
+    <p class="description">Advanced example using takeUntil with forkJoin for multiple data sources</p>
+  </div>
 
-<h3>Users</h3>
-@for (user of users; track user.id) {
-  <p>{{ user.name }}</p>
-}
+  <div class="tables-container">
+    <div class="table-section">
+      <h3>Users</h3>
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Company</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (user of users; track user.id) {
+              <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.company.name }}</td>
+              </tr>
+            }
+            @empty {
+              <tr>
+                <td colspan="5" class="empty-state">Loading users...</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
 
-<h3>Products</h3>
-@for (product of products; track product.id) {
-  <p>{{ product.title }} - ${{ product.price }}</p>
-}
+    <div class="table-section">
+      <h3>Products</h3>
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Price</th>
+              <th>Category</th>
+              <th>Rating</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (product of products; track product.id) {
+              <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.title }}</td>
+                <td>${{ product.price.toFixed(2) }}</td>
+                <td>{{ product.category }}</td>
+                <td>{{ product.rating.rate }} ({{ product.rating.count }} reviews)</td>
+              </tr>
+            }
+            @empty {
+              <tr>
+                <td colspan="5" class="empty-state">Loading products...</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
